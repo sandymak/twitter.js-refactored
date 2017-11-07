@@ -1,0 +1,28 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "a cool tweet app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "morgan": "^1.9.0",
+    "nunjucks": "^3.0.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennethkoch/twitter-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kennethkoch/twitter-js/issues"
+  },
+  "homepage": "https://github.com/kennethkoch/twitter-js#readme"
+}
