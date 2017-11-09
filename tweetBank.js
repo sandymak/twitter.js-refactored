@@ -5,16 +5,20 @@ const data = [];
 function add(name, content) {
   data.push({
     name: name,
-    content: content
+    content: content,
+    id: data.length
   });
 }
 
 function list() {
   return _.cloneDeep(data);
+  // create obj that look similar but are not the same
+  // people who use the array/obj will be able to use it without mutilating the arry
 }
 
 function find(properties) {
   return _.cloneDeep(_.filter(data, properties));
+  // return array for only properties we pass in
 }
 
 module.exports = {
@@ -41,6 +45,3 @@ const getFakeTweet = function () {
 for (let i = 0; i < 10; i++) {
   module.exports.add(getFakeName(), getFakeTweet());
 }
-
-// console.log('this is data', data);
-// console.log('what is find', find('name'));

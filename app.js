@@ -11,6 +11,7 @@ const path = require('path');
 // WHAT IS PATH????
 const mime = require('mime');
 // WHAT IS MIME???
+const bodyParser = require('body-parser');
 
 // var locals = {
 //   title: 'An Example',
@@ -33,14 +34,14 @@ app.use((req, res, next) => {
   next();
 });
 
+
 // We can install morgan to help us do the same as above
 // const morgan = require('morgan');
 // var logger = morgan('dev');
 // app.use(logger); // Get / 200 2.145 ms -22 <- we get the VERB / URI / runtime etc
 
 
-
-
+// THIS WILL RENDER IN APP OBJ?
 // nunjucks.render('index.html', locals, function (err, output) {
 //   if (err) return console.error(err);
 //   console.log(output)
@@ -71,8 +72,12 @@ app.use(express.static(path.join(__dirname, '/public')));
 //// otherwise, res.send that file with the correct with the correct headers
 // //}
 
+app.use(bodyParser.urlencoded({
+  extend: true
+}));
 app.use('/', routes);
+
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
-})
+});
