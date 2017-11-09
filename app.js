@@ -74,7 +74,10 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(bodyParser.urlencoded({
   extend: true
-}));
+})); // FOR HTML form submits
+
+app.use(bodyParser.json()); // FOR AJAX requests
+
 app.use('/', routes);
 
 
