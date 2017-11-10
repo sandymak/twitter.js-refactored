@@ -6,6 +6,7 @@ const router = express.Router();
 const tweetBank = require('../tweetBank');
 
 router.get('/', function (req, res, next) {
+
   let allTheTweets = tweetBank.list();
   res.render('index', {
     title: 'Twitter.js',
@@ -15,6 +16,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/users/:name', function (req, res, next) {
+  console.log('paramssss', Array.isArray(req.params.name));
   let tweetForName = tweetBank.find({
     name: req.params.name
   });
