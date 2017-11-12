@@ -27,9 +27,9 @@ const bodyParser = require('body-parser');
 // DEBUGGING TOOL
 // This portion is getting  our app to communicate to our app what is being req/res
 app.use((req, res, next) => {
-  // This is a built in method of node where everytime it recieved a req and sends res, we can get it
+  // This is a built in method of node where everytime server recieved a req and sends res, we can get it
   res.on('finish', () => {
-    console.log('requested:', req.method, req.path, 'response: ', req.statusCode);
+    console.log('requested:', req.method, req.path, 'response: ', res.statusCode);
   });
   next();
 });
@@ -62,6 +62,8 @@ app.engine('html', nunjucks.render); // how to render html templates
 // });
 
 // this is the typical way to use express static middleware
+// making the file a static file aka anyoe can access the file
+// ie --> you can see style.css when using (localhost:PORT or www.etc.)/public/stylesheets/style.css
 app.use(express.static(path.join(__dirname, '/public')));
 
 //// what is express.static doing???

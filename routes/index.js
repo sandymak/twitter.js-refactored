@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/users/:name', function (req, res, next) {
-  console.log('paramssss', Array.isArray(req.params.name));
+  console.log('req.query', req.params);
   let tweetForName = tweetBank.find({
     name: req.params.name
   });
